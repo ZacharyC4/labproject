@@ -6,24 +6,16 @@ import {
   ScrollView,
 } from 'react-native';
 
-export default function ToDoList() {
+export default function ToDoList({ tasks }) {
   return (
     <ScrollView>
-      <Pressable>
-        <View style={[styles.task, styles.completed]}>
-          <Text style={styles.taskText}>Do homework</Text>
-        </View>
-      </Pressable>
-      <Pressable>
-        <View style={styles.task}>
-          <Text style={styles.taskText}>Go to gym</Text>
-        </View>
-      </Pressable>
-      <Pressable>
-        <View style={[styles.task, styles.completed]}>
-          <Text style={styles.taskText}>Make dinner</Text>
-        </View>
-      </Pressable>
+      {tasks.map((task, index) => (
+        <Pressable
+          key={index}
+          style={() => [styles.task]}>
+          <Text style={styles.taskText}>{task}</Text>
+        </Pressable>
+      ))}
     </ScrollView>
   );
 }
