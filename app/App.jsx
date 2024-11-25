@@ -9,11 +9,17 @@ export default function App() {
       'Go to gym',
       'Walk dog'
     ]);
+
+    const addTask = (task) => {
+      setTasks([...tasks, task]);
+    }
+
+      
     return (
       <View style={styles.container}>
         <View style={styles.main}>
           < ToDoList tasks = {tasks} />
-          < ToDoForm />
+          < ToDoForm addTask={addTask}/>
         </View>
       </View>
     );
